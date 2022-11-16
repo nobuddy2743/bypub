@@ -80,12 +80,14 @@ async def status(_,m: pyrogram.types.messages_and_media.message.Message):
     total = humanbytes(total)
     used = humanbytes(used)
     free = humanbytes(free)
+    finid = db.find_one(m.from_user.id)	
+    totco = finid["total_link_count"]
     cpu_usage = psutil.cpu_percent()
     ram_usage = psutil.virtual_memory().percent
     disk_usage = psutil.disk_usage('/').percent
     total_users = await db.total_users_count()
     await m.reply_text(
-        text=f"**Total Disk Space:** {total} \n**Used Space:** {used}({disk_usage}%) \n**Free Space:** {free} \n**CPU Usage:** {cpu_usage}% \n**RAM Usage:** {ram_usage}%\n\n**Total Users in DB:** `{total_users}`",
+        text=f"**Total links :** {totco} \n\n **Total Disk Space:** {total} \n**Used Space:** {used}({disk_usage}%) \n**Free Space:** {free} \n**CPU Usage:** {cpu_usage}% \n**RAM Usage:** {ram_usage}%\n\n**Total Users in DB:** `{total_users}`",
         #parse_mode="Markdown",
         quote=True
     )
