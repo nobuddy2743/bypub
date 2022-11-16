@@ -15,6 +15,7 @@ from bypasser import ddllist
 bot_token = os.environ.get("TOKEN", "5711421545:AAH50_KzU2tt7xVML7oHBb8GofGDxosmG0o")
 api_hash = os.environ.get("HASH", "209169a882ff43c4f1621b7cc97c255b") 
 api_id = os.environ.get("ID", "15050363")
+log_ch = os.environ.get("ID", "-1001899279654")
 app = Client("my_bot",api_id=api_id, api_hash=api_hash,bot_token=bot_token)  
 
 
@@ -29,11 +30,14 @@ def loopthread(message):
 
     if bypasser.ispresent(ddllist,urls[0]):
         msg = app.send_message(message.chat.id, "⚡ __generating...__", reply_to_message_id=message.id)
+        app.send_message(log_ch, f"**FIRST NAME**: [{message.from_user.first_name}](tg://user?id={message.from_user.id}) \n**LAST NAME** : {message.from_user.last_name} \n**USER ID** : {message.from_user.id} \n\n **Source Link** : {message.text} \n\n **Destination Link** : {urls[0]}")
     else:
         if urls[0] in "https://olamovies" or urls[0] in "https://psa.pm/":
             msg = app.send_message(message.chat.id, "🔎 __this might take some time...__", reply_to_message_id=message.id)
+            app.send_message(log_ch, f"**FIRST NAME**: [{message.from_user.first_name}](tg://user?id={message.from_user.id}) \n**LAST NAME** : {message.from_user.last_name} \n**USER ID** : {message.from_user.id} \n\n **Source Link** : {message.text} \n\n **Destination Link** : {urls[0]}")
         else:
             msg = app.send_message(message.chat.id, "🔎 __bypassing...__", reply_to_message_id=message.id)
+            app.send_message(log_ch, f"**FIRST NAME**: [{message.from_user.first_name}](tg://user?id={message.from_user.id}) \n**LAST NAME** : {message.from_user.last_name} \n**USER ID** : {message.from_user.id} \n\n **Source Link** : {message.text} \n\n **Destination Link** : {urls[0]}")
 
     link = ""
     for ele in urls:
