@@ -30,14 +30,14 @@ def loopthread(message):
 
     if bypasser.ispresent(ddllist,urls[0]):
         msg = app.send_message(message.chat.id, "⚡ __generating...__", reply_to_message_id=message.id)
-        app.send_message(log_ch, f"**FIRST NAME**: [{message.from_user.first_name}](tg://user?id={message.from_user.id}) \n**LAST NAME** : {message.from_user.last_name} \n**USER ID** : {message.from_user.id} \n\n **Source Link** : {message.text} \n\n **Destination Link** : {urls[0]}")
+        #app.send_message(log_ch, f"**FIRST NAME**: [{message.from_user.first_name}](tg://user?id={message.from_user.id}) \n**LAST NAME** : {message.from_user.last_name} \n**USER ID** : {message.from_user.id} \n\n **Source Link** : {message.text} \n\n **Destination Link** : {urls[0]}")
     else:
         if urls[0] in "https://olamovies" or urls[0] in "https://psa.pm/":
             msg = app.send_message(message.chat.id, "🔎 __this might take some time...__", reply_to_message_id=message.id)
-            app.send_message(log_ch, f"**FIRST NAME**: [{message.from_user.first_name}](tg://user?id={message.from_user.id}) \n**LAST NAME** : {message.from_user.last_name} \n**USER ID** : {message.from_user.id} \n\n **Source Link** : {message.text} \n\n **Destination Link** : {urls[0]}")
+            #app.send_message(log_ch, f"**FIRST NAME**: [{message.from_user.first_name}](tg://user?id={message.from_user.id}) \n**LAST NAME** : {message.from_user.last_name} \n**USER ID** : {message.from_user.id} \n\n **Source Link** : {message.text} \n\n **Destination Link** : {urls[0]}")
         else:
             msg = app.send_message(message.chat.id, "🔎 __bypassing...__", reply_to_message_id=message.id)
-            app.send_message(log_ch, f"**FIRST NAME**: [{message.from_user.first_name}](tg://user?id={message.from_user.id}) \n**LAST NAME** : {message.from_user.last_name} \n**USER ID** : {message.from_user.id} \n\n **Source Link** : {message.text} \n\n **Destination Link** : {urls[0]}")
+            #app.send_message(log_ch, f"**FIRST NAME**: [{message.from_user.first_name}](tg://user?id={message.from_user.id}) \n**LAST NAME** : {message.from_user.last_name} \n**USER ID** : {message.from_user.id} \n\n **Source Link** : {message.text} \n\n **Destination Link** : {urls[0]}")
 
     link = ""
     for ele in urls:
@@ -49,6 +49,7 @@ def loopthread(message):
             except Exception as e: temp = "**Error**: " + str(e)
         print("bypassed:",temp)
         link = link + temp + "\n\n"
+        app.send_message(log_ch, f"**FIRST NAME**: [{message.from_user.first_name}](tg://user?id={message.from_user.id}) \n**LAST NAME** : {message.from_user.last_name} \n**USER ID** : {message.from_user.id} \n\n **Source Link** : {message.text} \n\n **Destination Link** : {temp}")
         
     try: app.edit_message_text(message.chat.id, msg.id, f'__{link}__', disable_web_page_preview=True)
     except: app.edit_message_text(message.chat.id, msg.id, "__Failed to Bypass__")
