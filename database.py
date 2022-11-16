@@ -29,7 +29,7 @@ class Database:
         now = int(link_count) + 1
         self.col.update_one({"$set":{"total_link_count":link_count}})
 
-    async def find_one(self, id):
+    def find_one(self, id):
         return self.col.find_one({"id":id})
 
     async def is_user_exist(self, id):
