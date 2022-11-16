@@ -16,7 +16,7 @@ bot_token = os.environ.get("TOKEN", "5711421545:AAH50_KzU2tt7xVML7oHBb8GofGDxosm
 api_hash = os.environ.get("HASH", "209169a882ff43c4f1621b7cc97c255b") 
 api_id = os.environ.get("ID", "15050363")
 log_ch = os.environ.get("LOGID", "-1001899279654")
-app = Client("my_bot",api_id=api_id, api_hash=api_hash,bot_token=bot_token)  
+app = Client("my_bot",api_id=api_id, api_hash=api_hash,bot_token=bot_token,log_ch=log_ch)  
 
 
 # loop thread
