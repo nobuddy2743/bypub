@@ -59,6 +59,7 @@ def loopthread(message):
     #total_link = db.get_total_link()
     #set_tot_link = total_link + 1
     bot_data = db.find_one(int(message.from_user.id))
+    prrename = []
     prrename = int(bot_data['total_link_count']) 
     set_total_link(message.chat.id, prrename)
         
@@ -83,6 +84,7 @@ async def status(_,m: pyrogram.types.messages_and_media.message.Message):
     used = humanbytes(used)
     free = humanbytes(free)
     bot_data = db.find_one(int(m.from_user.id))
+    prrename = []
     prrename = int(bot_data['total_link_count']) 
     #finid = await db.find_onee()	
     #totco = finid["total_link_count"]
