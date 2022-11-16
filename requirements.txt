@@ -8,3 +8,5 @@ lxml
 lk21
 cfscrape
 PyBypass
+motor
+psutil
