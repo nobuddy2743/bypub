@@ -27,19 +27,14 @@ class Database:
     def set_total_link(self, link_count):        
         #link_count = self.col.find_one({'total_link_count': int(link_count)})
         #link_count += 1
-        self.col.update_one({'total_link_count': int(link_count)})
+        self.col.update_one({"$set":{"total_link_count":link_count}})
         
     def get_total_link(self):
-        link_count =0
-        x = self.col.find({"new_user.total_link_count"})
-        for data in x:
-            print(data.get('new_user')[0].get('total_link_count'))
-            #link_count += 
-        #link_count =0
-        #for x in self.col.find({}, {"total_link_count": 1}):
-            #link_count += 1
-        #link_count += 1
-        #return link_count    
+        #now = int(renamed_file) + 1
+	self.col.update_one({"_id":chat_id},{"$set":{"total_rename":str(now)}})
+
+    def find_one(id):
+	return col.find_one({"id":id})
 
     async def is_user_exist(self, id):
         user = await self.col.find_one({'id': int(id)})
