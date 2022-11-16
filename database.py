@@ -13,7 +13,7 @@ class Database:
         return dict(
             id=id,
             join_date=datetime.date.today().isoformat(),
-            total_link_count=0,
+            total_link_count=total_link_count,
             upload_as_doc=False,
             thumbnail=None,
             generate_ss=False,
