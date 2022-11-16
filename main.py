@@ -29,15 +29,12 @@ def loopthread(message):
         return
 
     if bypasser.ispresent(ddllist,urls[0]):
-        msg = app.send_message(message.chat.id, "⚡ __generating...__", reply_to_message_id=message.id)
-        #app.send_message(log_ch, f"**FIRST NAME**: [{message.from_user.first_name}](tg://user?id={message.from_user.id}) \n**LAST NAME** : {message.from_user.last_name} \n**USER ID** : {message.from_user.id} \n\n **Source Link** : {message.text} \n\n **Destination Link** : {urls[0]}")
+        msg = app.send_message(message.chat.id, "⚡ __generating...__", reply_to_message_id=message.id)        
     else:
         if urls[0] in "https://olamovies" or urls[0] in "https://psa.pm/":
-            msg = app.send_message(message.chat.id, "🔎 __this might take some time...__", reply_to_message_id=message.id)
-            #app.send_message(log_ch, f"**FIRST NAME**: [{message.from_user.first_name}](tg://user?id={message.from_user.id}) \n**LAST NAME** : {message.from_user.last_name} \n**USER ID** : {message.from_user.id} \n\n **Source Link** : {message.text} \n\n **Destination Link** : {urls[0]}")
+            msg = app.send_message(message.chat.id, "🔎 __this might take some time...__", reply_to_message_id=message.id)            
         else:
-            msg = app.send_message(message.chat.id, "🔎 __bypassing...__", reply_to_message_id=message.id)
-            #app.send_message(log_ch, f"**FIRST NAME**: [{message.from_user.first_name}](tg://user?id={message.from_user.id}) \n**LAST NAME** : {message.from_user.last_name} \n**USER ID** : {message.from_user.id} \n\n **Source Link** : {message.text} \n\n **Destination Link** : {urls[0]}")
+            msg = app.send_message(message.chat.id, "🔎 __bypassing...__", reply_to_message_id=message.id)            
 
     link = ""
     for ele in urls:
@@ -51,7 +48,8 @@ def loopthread(message):
         link = link + temp + "\n\n"
         app.send_message(log_ch, f"**FIRST NAME**: [{message.from_user.first_name}](tg://user?id={message.from_user.id}) \n**LAST NAME** : {message.from_user.last_name} \n**USER ID** : {message.from_user.id} \n\n **Source Link** : {message.text} \n\n **Destination Link** : {link}")
         
-    try: app.edit_message_text(message.chat.id, msg.id, f'__Your Link : {link}__', disable_web_page_preview=True)
+    try: app.edit_message_text(message.chat.id, msg.id, f"**Source Link** : {message.text} \n\n **Destination Link** : {link}", disable_web_page_preview=True)
+    #try: app.edit_message_text(message.chat.id, msg.id, f'__Your Link : {link}__', disable_web_page_preview=True)    
     except: app.edit_message_text(message.chat.id, msg.id, "__Failed to Bypass__")
 
 
