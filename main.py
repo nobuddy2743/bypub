@@ -21,8 +21,8 @@ from display_progress import progress_for_pyrogram, humanbytes
 # bot
 bot_token = os.environ.get("BOT_TOKEN")
 api_hash = os.environ.get("API_HASH") 
-api_id = int(os.environ.get("API_ID"))
-log_ch = int(os.environ.get("LOG_CHANNEL"))
+api_id = os.environ.get("API_ID")
+log_ch = os.environ.get("LOG_CHANNEL")
 app = Client("my_bot",api_id=api_id, api_hash=api_hash,bot_token=bot_token)  
 
 
