@@ -24,14 +24,13 @@ class Database:
         user = self.new_user(id)
         await self.col.insert_one(user)
         
-    def set_total_link(self, link_count):        
+    def set_total_link(self, cid, link_count):        
         #link_count = self.col.find_one({'total_link_count': int(link_count)})
-        #link_count += 1
+        now = int(link_count) + 1
         self.col.update_one({"$set":{"total_link_count":link_count}})
 
-    async def find_onee(self):
-        user = await self.col.find_one().total_link_count
-        return user
+    async def find_one(self, id):
+        return self.col.find_one({"id":id})
 
     async def is_user_exist(self, id):
         user = await self.col.find_one({'id': int(id)})
