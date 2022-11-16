@@ -58,10 +58,10 @@ def loopthread(message):
      
     #total_link = db.get_total_link()
     #set_tot_link = total_link + 1
-    bot_data = db.find_one(int(message.from_user.id))
-    prrename = []
-    prrename = bot_data['total_link_count': 0]
-    set_total_link(message.chat.id, prrename)
+    #bot_data = db.find_one(int(message.from_user.id))
+    #prrename = []
+    #prrename = bot_data['total_link_count': 0]
+    #set_total_link(message.chat.id, prrename)
         
     try: app.edit_message_text(message.chat.id, msg.id, f"**Source Link** : {message.text} \n\n **Destination Link** : {link}", disable_web_page_preview=True)
     #try: app.edit_message_text(message.chat.id, msg.id, f'__Your Link : {link}__', disable_web_page_preview=True)    
@@ -83,9 +83,9 @@ async def status(_,m: pyrogram.types.messages_and_media.message.Message):
     total = humanbytes(total)
     used = humanbytes(used)
     free = humanbytes(free)
-    bot_data = db.find_one(int(m.from_user.id))
-    prrename = []
-    prrename = bot_data['total_link_count': 0]
+    #bot_data = db.find_one(int(m.from_user.id))
+    #prrename = []
+    #prrename = bot_data['total_link_count': 0]
     #finid = await db.find_onee()	
     #totco = finid["total_link_count"]
     cpu_usage = psutil.cpu_percent()
@@ -93,7 +93,7 @@ async def status(_,m: pyrogram.types.messages_and_media.message.Message):
     disk_usage = psutil.disk_usage('/').percent
     total_users = await db.total_users_count()
     await m.reply_text(
-        text=f"**Total links :** {prrename} \n\n **Total Disk Space:** {total} \n**Used Space:** {used}({disk_usage}%) \n**Free Space:** {free} \n**CPU Usage:** {cpu_usage}% \n**RAM Usage:** {ram_usage}%\n\n**Total Users in DB:** `{total_users}`",
+        text=f"**Total Disk Space:** {total} \n**Used Space:** {used}({disk_usage}%) \n**Free Space:** {free} \n**CPU Usage:** {cpu_usage}% \n**RAM Usage:** {ram_usage}%\n\n**Total Users in DB:** `{total_users}`",
         #parse_mode="Markdown",
         quote=True
     )
