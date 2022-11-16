@@ -6,7 +6,7 @@ class Config(object):
     API_HASH = os.environ.get("API_HASH", "209169a882ff43c4f1621b7cc97c255b") 
     API_ID = os.environ.get("API_ID", "15050363")
      
-    #SESSION_NAME = os.environ.get("SESSION_NAME", "Mdisk-Bot")
+    SESSION_NAME = os.environ.get("SESSION_NAME", "Bypass-Bot")
     #UPDATES_CHANNEL = os.environ.get("UPDATES_CHANNEL")
     LOG_CHANNEL = os.environ.get("LOG_CHANNEL", "-1001899279654")
     #DOWN_PATH = os.environ.get("DOWN_PATH", "./downloads")
