@@ -30,7 +30,8 @@ class Database:
         self.col.update_one({"$set":{"total_link_count":link_count}})
 
     async def find_onee(self, uid):
-        return await self.col.find_one({'id': int(uid)})
+        user = await self.col.find_one({'id': int(uid)})
+        return user.get('total_link_count')
 
     async def is_user_exist(self, id):
         user = await self.col.find_one({'id': int(id)})
