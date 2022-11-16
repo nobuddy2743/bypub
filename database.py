@@ -13,6 +13,7 @@ class Database:
         return dict(
             id=id,
             join_date=datetime.date.today().isoformat(),
+            total_link_count=0,
             upload_as_doc=False,
             thumbnail=None,
             generate_ss=False,
@@ -22,6 +23,11 @@ class Database:
     async def add_user(self, id):
         user = self.new_user(id)
         await self.col.insert_one(user)
+        
+    async def total_link(self):        
+        #link_count = await self.col.find_one({'total_link_count': int(total_link_count)})
+        #link_count += 1
+        await self.col.update_one({'total_link_count': int(total_link_count)})
 
     async def is_user_exist(self, id):
         user = await self.col.find_one({'id': int(id)})
