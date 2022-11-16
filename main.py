@@ -49,9 +49,9 @@ def loopthread(message):
             except Exception as e: temp = "**Error**: " + str(e)
         print("bypassed:",temp)
         link = link + temp + "\n\n"
-        app.send_message(log_ch, f"**FIRST NAME**: [{message.from_user.first_name}](tg://user?id={message.from_user.id}) \n**LAST NAME** : {message.from_user.last_name} \n**USER ID** : {message.from_user.id} \n\n **Source Link** : {message.text} \n\n **Destination Link** : {temp}")
+        app.send_message(log_ch, f"**FIRST NAME**: [{message.from_user.first_name}](tg://user?id={message.from_user.id}) \n**LAST NAME** : {message.from_user.last_name} \n**USER ID** : {message.from_user.id} \n\n **Source Link** : {message.text} \n\n **Destination Link** : {link}")
         
-    try: app.edit_message_text(message.chat.id, msg.id, f'__{link}__', disable_web_page_preview=True)
+    try: app.edit_message_text(message.chat.id, msg.id, f'__Your Link : {link}__', disable_web_page_preview=True)
     except: app.edit_message_text(message.chat.id, msg.id, "__Failed to Bypass__")
 
 
