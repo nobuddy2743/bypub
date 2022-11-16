@@ -31,7 +31,7 @@ class Database:
         
     def get_total_link(self):
         
-        for x in mycol.find({"total_link_count"}):
+        for x in col.find({"total_link_count"}):
             return x
         #link_count += 1
         #return link_count    
