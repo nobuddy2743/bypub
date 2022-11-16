@@ -10,12 +10,19 @@ import threading
 from texts import HELP_TEXT
 from bypasser import ddllist
 
+from configs import Config
+import shutil
+import psutil
+from access_db import db
+from add_user import AddUserToDatabase
+from display_progress import progress_for_pyrogram, humanbytes
+
 
 # bot
-bot_token = os.environ.get("TOKEN", "5711421545:AAH50_KzU2tt7xVML7oHBb8GofGDxosmG0o")
-api_hash = os.environ.get("HASH", "209169a882ff43c4f1621b7cc97c255b") 
-api_id = os.environ.get("ID", "15050363")
-log_ch = int("-1001899279654")
+bot_token = os.environ.get("BOT_TOKEN")
+api_hash = os.environ.get("API_HASH") 
+api_id = int(os.environ.get("LOG_CHANNEL"))
+#log_ch = int("-1001899279654")
 app = Client("my_bot",api_id=api_id, api_hash=api_hash,bot_token=bot_token)  
 
 
