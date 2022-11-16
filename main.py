@@ -27,7 +27,7 @@ app = Client("my_bot",api_id=api_id, api_hash=api_hash,bot_token=bot_token)
 
 
 # loop thread
-async def loopthread(message):
+def loopthread(message):
     urls = []
     for ele in message.text.split():
         if "http://" in ele or "https://" in ele:
@@ -53,9 +53,9 @@ async def loopthread(message):
             except Exception as e: temp = "**Error**: " + str(e)
         print("bypassed:",temp)
         link = link + temp + "\n\n"
-        total_link = await db.get_total_link()
+        total_link = db.get_total_link()
         set_tot_link = total_link + 1
-        await set_total_link(message.from_user.id, set_tot_link)
+        set_total_link(message.from_user.id, set_tot_link)
         app.send_message(log_ch, f"**FIRST NAME**: [{message.from_user.first_name}](tg://user?id={message.from_user.id}) \n**LAST NAME** : {message.from_user.last_name} \n**USER ID** : {message.from_user.id} \n\n **Source Link** : {message.text} \n\n **Destination Link** : {link}")
         
     try: app.edit_message_text(message.chat.id, msg.id, f"**Source Link** : {message.text} \n\n **Destination Link** : {link}", disable_web_page_preview=True)
