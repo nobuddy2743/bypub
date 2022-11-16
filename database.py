@@ -28,10 +28,6 @@ class Database:
         #link_count = self.col.find_one({'total_link_count': int(link_count)})
         #link_count += 1
         self.col.update_one({"$set":{"total_link_count":link_count}})
-        
-    def get_total_link(self):
-        #now = int(renamed_file) + 1
-	self.col.update_one({"_id":chat_id},{"$set":{"total_rename":str(now)}})
 
     def find_one(id):
 	return col.find_one({"id":id})
