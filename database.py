@@ -30,11 +30,11 @@ class Database:
         self.col.update_one({'total_link_count': int(link_count)})
         
     def get_total_link(self):
-        
-        for x in self.col.find({"total_link_count": 1}):
-            return x
+        link_count =0
+        for x in self.col.find({}, {"total_link_count": 1}):
+            link_count += 1
         #link_count += 1
-        #return link_count    
+        return link_count    
 
     async def is_user_exist(self, id):
         user = await self.col.find_one({'id': int(id)})
