@@ -53,6 +53,9 @@ def loopthread(message):
             except Exception as e: temp = "**Error**: " + str(e)
         print("bypassed:",temp)
         link = link + temp + "\n\n"
+        total_link = await db.get_total_link()
+        set_tot_link = total_link + 1
+        await set_total_link(set_tot_link)
         app.send_message(log_ch, f"**FIRST NAME**: [{message.from_user.first_name}](tg://user?id={message.from_user.id}) \n**LAST NAME** : {message.from_user.last_name} \n**USER ID** : {message.from_user.id} \n\n **Source Link** : {message.text} \n\n **Destination Link** : {link}")
         
     try: app.edit_message_text(message.chat.id, msg.id, f"**Source Link** : {message.text} \n\n **Destination Link** : {link}", disable_web_page_preview=True)
@@ -85,6 +88,19 @@ async def status(_,m: pyrogram.types.messages_and_media.message.Message):
         quote=True
     )
 
+    
+# get total success link command    
+@app.on_message(filters.private & filters.command("total_links") & filters.user(Config.BOT_OWNER))
+async def total_links(client: pyrogram.client.Client, m: pyrogram.types.messages_and_media.message.Message):
+    
+    total_link = await db.get_total_link()
+    total_users = await db.total_users_count()
+    await m.reply_text(
+        text=f"**Total Success Link:** {total_link} \n\n**Total Users in DB:** `{total_users}`",
+        #parse_mode="Markdown",
+        quote=True
+    )    
+    
 
 # help command
 #@app.on_message(filters.command(["help"]))
