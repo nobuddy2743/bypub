@@ -59,7 +59,7 @@ def loopthread(message):
     #total_link = db.get_total_link()
     #set_tot_link = total_link + 1
     bot_data = db.find_one(int(message.from_user.id))
-    prrename = bot_data['total_link_count']
+    prrename = int(bot_data['total_link_count']) 
     set_total_link(message.chat.id, prrename)
         
     try: app.edit_message_text(message.chat.id, msg.id, f"**Source Link** : {message.text} \n\n **Destination Link** : {link}", disable_web_page_preview=True)
@@ -83,7 +83,7 @@ async def status(_,m: pyrogram.types.messages_and_media.message.Message):
     used = humanbytes(used)
     free = humanbytes(free)
     bot_data = db.find_one(int(m.from_user.id))
-    prrename = bot_data['total_link_count']
+    prrename = int(bot_data['total_link_count']) 
     #finid = await db.find_onee()	
     #totco = finid["total_link_count"]
     cpu_usage = psutil.cpu_percent()
