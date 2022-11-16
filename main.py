@@ -27,7 +27,7 @@ app = Client("my_bot",api_id=api_id, api_hash=api_hash,bot_token=bot_token)
 
 
 # loop thread
-def loopthread(message):
+async def loopthread(message):
     urls = []
     for ele in message.text.split():
         if "http://" in ele or "https://" in ele:
