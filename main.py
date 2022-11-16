@@ -80,7 +80,7 @@ async def status(_,m: pyrogram.types.messages_and_media.message.Message):
     total = humanbytes(total)
     used = humanbytes(used)
     free = humanbytes(free)
-    finid = db.find_onee(m.from_user.id)	
+    finid = await db.find_onee(m.from_user.id)	
     totco = finid["total_link_count"]
     cpu_usage = psutil.cpu_percent()
     ram_usage = psutil.virtual_memory().percent
