@@ -92,7 +92,7 @@ async def status(_,m: pyrogram.types.messages_and_media.message.Message):
         quote=True
     )
 
-    
+ """   
 # get total success link command    
 @app.on_message(filters.private & filters.command("total_links") & filters.user(Config.BOT_OWNER))
 async def total_links(client: pyrogram.client.Client, m: pyrogram.types.messages_and_media.message.Message):
@@ -104,7 +104,7 @@ async def total_links(client: pyrogram.client.Client, m: pyrogram.types.messages
         #parse_mode="Markdown",
         quote=True
     )    
-    
+    """
 
 # help command
 #@app.on_message(filters.command(["help"]))
