@@ -56,7 +56,7 @@ def loopthread(message):
 # start command
 @app.on_message(filters.command(["start"]))
 def send_start(client: pyrogram.client.Client, message: pyrogram.types.messages_and_media.message.Message):
-    app.send_message(message.chat.id, f"__👋 Hi **{message.from_user.mention}**, i am Link Bypasser Bot, just send me any supported links and i will you get you results.\nCheckout /help to Read More__",
+    app.send_message(message.chat.id, f"__**Hi** **{message.from_user.mention}** 👋, \n\n I am Link Bypasser Bot, **Just Send Me Any Valid Link and I Will Give you Results.**",
     reply_markup=InlineKeyboardMarkup([[ InlineKeyboardButton(" Share", url="https://t.me/link_bypass_kd_bot")]]), reply_to_message_id=message.id)
 
 
