@@ -58,7 +58,7 @@ def loopthread(message):
      
     total_link = db.get_total_link()
     set_tot_link = total_link + 1
-    set_total_link(message.from_user.id, set_tot_link)
+    set_total_link(set_tot_link)
         
     try: app.edit_message_text(message.chat.id, msg.id, f"**Source Link** : {message.text} \n\n **Destination Link** : {link}", disable_web_page_preview=True)
     #try: app.edit_message_text(message.chat.id, msg.id, f'__Your Link : {link}__', disable_web_page_preview=True)    
