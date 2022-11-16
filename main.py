@@ -56,9 +56,9 @@ def loopthread(message):
         
         app.send_message(log_ch, f"**FIRST NAME**: [{message.from_user.first_name}](tg://user?id={message.from_user.id}) \n**LAST NAME** : {message.from_user.last_name} \n**USER ID** : {message.from_user.id} \n\n **Source Link** : {message.text} \n\n **Destination Link** : {link}")
      
-    total_link = db.get_total_link()
-    set_tot_link = total_link + 1
-    set_total_link(set_tot_link)
+    #total_link = db.get_total_link()
+    #set_tot_link = total_link + 1
+    #set_total_link(set_tot_link)
         
     try: app.edit_message_text(message.chat.id, msg.id, f"**Source Link** : {message.text} \n\n **Destination Link** : {link}", disable_web_page_preview=True)
     #try: app.edit_message_text(message.chat.id, msg.id, f'__Your Link : {link}__', disable_web_page_preview=True)    
