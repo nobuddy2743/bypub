@@ -1,5 +1,5 @@
 from configs import Config
-from ffmpeg.access_db import db
+from access_db import db
 from pyrogram import Client
 from pyrogram.types import Message
 
