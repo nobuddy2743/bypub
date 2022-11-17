@@ -31,7 +31,8 @@ class Database:
         
     def get_total_link(self):
         output = []
-        self.col.find().forEach(function(document){output.push(document.total_link_count)})
+        #self.col.find().forEach(function(document){output.push(document.total_link_count)})
+        output = self.col.find({},{'id':0,'total_link_count':true})
         x = len(output)
         #id = self.col.find_one({'id':int(id)})
         if not x:
