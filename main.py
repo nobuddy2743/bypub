@@ -98,7 +98,7 @@ async def status(_,m: pyrogram.types.messages_and_media.message.Message):
         quote=True
     )
 
-
+"""
 @app.on_message(filters.private & filters.command("tolink") & filters.user(Config.BOT_OWNER))
 def send_help(client: pyrogram.client.Client, message: pyrogram.types.messages_and_media.message.Message):
     totco = "Hello"
@@ -112,7 +112,7 @@ def send_help(client: pyrogram.client.Client, message: pyrogram.types.messages_a
         #parse_mode="Markdown",
         quote=True
     )
-
+"""
 
 
 # help command
