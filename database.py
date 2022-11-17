@@ -30,7 +30,7 @@ class Database:
         self.col.update_one({"$set":{"total_link_count":link_count}})
         
     def get_total_link(self, id):        
-        id = await self.col.find_one({'id':int(id)})
+        id = self.col.find_one({'id':int(id)})
         if not id:
             return False
         else:
