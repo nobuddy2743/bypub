@@ -102,8 +102,11 @@ async def status(_,m: pyrogram.types.messages_and_media.message.Message):
 @app.on_message(filters.private & filters.command("tolink") & filters.user(Config.BOT_OWNER))
 def send_help(client: pyrogram.client.Client, message: pyrogram.types.messages_and_media.message.Message):
     totco = "Hello"
+    links = db.get_total_link(message.from_user.id)
+    if not links:
+        return
     message.reply_text(
-        text=f"**Total Link:** {totco}",
+        text=f"**Total Hello:** {totco} \n\n**Total Links:** {links}",
         #parse_mode="Markdown",
         quote=True
     )
