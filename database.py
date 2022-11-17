@@ -38,7 +38,7 @@ class Database:
         #if not x:
            # return False
         #else:
-            return output
+        return output
 
     def find_one(self, id):
         return self.col.find_one({"id":id})
