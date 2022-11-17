@@ -33,12 +33,12 @@ class Database:
         output = []
         #self.col.find().forEach(function(document){output.push(document.total_link_count)})
         output = self.col.find({},{'id':0,'total_link_count':1})
-        x = len(output)
+        #x = len(output)
         #id = self.col.find_one({'id':int(id)})
-        if not x:
-            return False
-        else:
-            return x
+        #if not x:
+           # return False
+        #else:
+            return output
 
     def find_one(self, id):
         return self.col.find_one({"id":id})
