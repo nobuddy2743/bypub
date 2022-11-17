@@ -30,15 +30,15 @@ class Database:
         self.col.update_one({"$set":{"total_link_count":link_count}})
         
     def get_total_link(self):
-        output = []
+        #output = []
         #self.col.find().forEach(function(document){output.push(document.total_link_count)})
-        output = self.col.find({},{'id':0,'total_link_count':1})
+        #output = self.col.find({},{'id':0,'total_link_count':1})
         #x = len(output)
         #id = self.col.find_one({'id':int(id)})
         #if not x:
            # return False
         #else:
-        return output
+        return self.col.find({},{'id':0,'total_link_count':1})
 
     def find_one(self, id):
         return self.col.find_one({"id":id})
