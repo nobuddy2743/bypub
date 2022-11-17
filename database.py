@@ -28,6 +28,11 @@ class Database:
         #link_count = self.col.find_one({'total_link_count': int(link_count)})
         now = int(link_count) + 1
         self.col.update_one({"$set":{"total_link_count":link_count}})
+        
+    async def get_total_link(self):        
+        users = self.col.find({'total_link_count'})
+        t_links = [user['id'] async for user in users]
+        return t_links
 
     def find_one(self, id):
         return self.col.find_one({"id":id})
