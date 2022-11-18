@@ -52,12 +52,7 @@ def adrinolinks(link):
     bypassed_link = PyBypass.bypass(link, name="adrinolinks")
     try:
         return bypassed_link
-    except: 
-	return "Something went Wrong !!"
-
-
-
-
+    except: return "Something went Wrong !!"
 
 
 ###############################################################
