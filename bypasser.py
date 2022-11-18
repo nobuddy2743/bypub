@@ -1548,7 +1548,7 @@ def shortners(url):
         return try2link_bypass(url)
 
     # adrinolinks
-    elif "https://adrinolinks.com/" in url:
+    elif (("https://adrinolinks.in/") in url or ("https://adrinolinks.com/" in url)):
         print("entered adrinolinks:",url)
         return adrinolinks(url)	
 
