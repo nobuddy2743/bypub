@@ -53,7 +53,7 @@ def adrinolinks(url):
     if ('adrinolinks.com' in url) or ('adrinolinks.in' in url):
         DOMAIN = "https://wikitraveltips.com/"
     else:
-        return "Incorrect Link"
+        return "https://wikitraveltips.com/"
 
     url = url[:-1] if url[-1] == '/' else url
 
