@@ -45,6 +45,21 @@ ddllist = ["disk.yandex.com","mediafire.com","uptobox.com","osdn.net","github.co
 "mm9842.com","sbembed.com","watchsb.com","streamsb.net","sbplay.org"]
 
 
+############################################################
+# Adrino links
+
+def adrinolinks(link):
+    bypassed_link = PyBypass.bypass(link, name="adrinolinks")
+    try:
+        return bypassed_link
+    except: 
+	return "Something went Wrong !!"
+
+
+
+
+
+
 ###############################################################
 # htpmovies cinevood sharespark
 
@@ -1535,6 +1550,11 @@ def shortners(url):
     elif "https://try2link.com/" in url:
         print("entered try2links:",url)
         return try2link_bypass(url)
+
+    # adrinolinks
+    elif "https://adrinolinks.com/" in url:
+        print("entered adrinolinks:",url)
+        return adrinolinks(url)	
 
     # gdrive look alike
     elif ispresent(gdlist,url):
