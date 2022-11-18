@@ -51,9 +51,9 @@ ddllist = ["disk.yandex.com","mediafire.com","uptobox.com","osdn.net","github.co
 def adrinolinks(link):
     bypassed_link = PyBypass.bypass(link, name="adrinolinks")
     try:
-        return bypassed_link
+       return bypassed_link
     except: 
-	return "Something went Wrong !!"
+       return "Something went Wrong !!"
 
 
 ###############################################################
