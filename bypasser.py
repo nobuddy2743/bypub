@@ -48,9 +48,37 @@ ddllist = ["disk.yandex.com","mediafire.com","uptobox.com","osdn.net","github.co
 ############################################################
 # Adrino links
 
-def adrinolinks(url):    
-    bypassed_link = PyBypass.bypass(url, name="adrinolinks")
-    return bypassed_link
+def adrino_links(url):
+    
+    client = cloudscraper.create_scraper(allow_brotli=False)    
+    
+    DOMAIN = "https://adrinolinks.com/"
+
+    url = url[:-1] if url[-1] == '/' else url
+
+    code = url.split("/")[-1]
+    
+    final_url = f"{DOMAIN}/{code}"
+    
+    ref = "https://wikitraveltips.com/"
+    
+    h = {"referer": ref}
+  
+    resp = client.get(final_url,headers=h)
+    
+    soup = BeautifulSoup(resp.content, "html.parser")
+    
+    inputs = soup.find_all("input")
+   
+    data = { input.get('name'): input.get('value') for input in inputs }
+
+    h = { "x-requested-with": "XMLHttpRequest" }
+    
+    time.sleep(8)
+    r = client.post(f"{DOMAIN}/links/go", data=data, headers=h)
+    try:
+        return r.json()['url']
+    except: return "Something went wrong :("
 
 
 ###############################################################
@@ -1586,7 +1614,7 @@ def shortners(url):
     # adrinolinks
     elif (("https://adrinolinks.in/") in url or ("https://adrinolinks.com/" in url)):
         print("entered adrinolinks:",url)
-        return adrinolinks(url)	
+        return adrino_links(url)	
 
     # urlsopen
     elif "https://urlsopen.com/" in url:
