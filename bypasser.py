@@ -281,9 +281,9 @@ def urlsopen(url):
 
 def rocklinks(url):
    client = cloudscraper.create_scraper(allow_brotli=False)
-    if ('rocklinks.net' in url) or ('go.rocklinks.net' in url):
-        DOMAIN = "https://blog.disheye.com"
-    else:
+   if ('rocklinks.net' in url) or ('go.rocklinks.net' in url):
+   	DOMAIN = "https://blog.disheye.com"
+   else:
         DOMAIN = "https://rocklinks.net"
 
     url = url[:-1] if url[-1] == '/' else url
