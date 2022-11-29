@@ -280,8 +280,8 @@ def urlsopen(url):
 # rocklinks
 
 def rocklinks(url):
-    client = cloudscraper.create_scraper(allow_brotli=False)
-    if 'rocklinks.net' in url:
+   client = cloudscraper.create_scraper(allow_brotli=False)
+    if ('rocklinks.net' in url) or ('go.rocklinks.net' in url):
         DOMAIN = "https://blog.disheye.com"
     else:
         DOMAIN = "https://rocklinks.net"
@@ -298,7 +298,7 @@ def rocklinks(url):
     soup = BeautifulSoup(resp.content, "html.parser")
     
     try: inputs = soup.find(id="go-link").find_all(name="input")
-    except: return "A Incorrect Link"
+    except: return "Incorrect Link"
     
     data = { input.get('name'): input.get('value') for input in inputs }
 
