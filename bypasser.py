@@ -52,7 +52,7 @@ def adrino_links(url):
     
     client = cloudscraper.create_scraper(allow_brotli=False)    
     
-    DOMAIN = "https://adrinolinks.com/"
+    DOMAIN = "https://adrinolinks.in/g23hBKl"
 
     url = url[:-1] if url[-1] == '/' else url
 
