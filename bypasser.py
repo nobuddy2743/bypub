@@ -209,6 +209,45 @@ def psa_bypasser(psa_url):
 
 
 ##################################################################################################################
+# urlsopen.com
+
+def urlsopen(url):
+    
+    client = cloudscraper.create_scraper(allow_brotli=False)
+    
+    
+    DOMAIN = "https://short.url2go.in/RJOVAq30CU7lINo9AwG4oT3eISn7"
+
+    url = url[:-1] if url[-1] == '/' else url
+
+    code = url.split("/")[-1]
+    
+    final_url = f"{DOMAIN}/{code}"
+    
+    ref = "https://blog.textpage.xyz/"
+    
+    h = {"referer": ref}
+  
+    resp = client.get(final_url,headers=h)
+    
+    soup = BeautifulSoup(resp.content, "html.parser")
+    
+    inputs = soup.find_all("input")
+   
+    data = { input.get('name'): input.get('value') for input in inputs }
+
+    h = { "x-requested-with": "XMLHttpRequest" }
+    
+    time.sleep(8)
+    r = client.post(f"{DOMAIN}/links/go", data=data, headers=h)
+    try:
+        return r.json()['url']
+    except: return "Something went wrong :("
+
+
+
+
+##################################################################################################################
 # rocklinks
 
 def rocklinks(url):
@@ -1548,6 +1587,11 @@ def shortners(url):
     elif (("https://adrinolinks.in/") in url or ("https://adrinolinks.com/" in url)):
         print("entered adrinolinks:",url)
         return adrinolinks(url)	
+
+    # urlsopen
+    elif "https://urlsopen.com/" in url:
+        print("entered urlsopen:",url)
+        return urlsopen(url)
 
     # gdrive look alike
     elif ispresent(gdlist,url):
