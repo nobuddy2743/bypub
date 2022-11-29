@@ -51,28 +51,31 @@ ddllist = ["disk.yandex.com","mediafire.com","uptobox.com","osdn.net","github.co
 def adrino_links(url):
     
     client = cloudscraper.create_scraper(allow_brotli=False)
-    if 'adrinolinks.com' in url or 'adrinolinks.in' in url:
-        DOMAIN = "https://wikitraveltips.com/"
-    else:
-        return "Incorrect Link"
+    
+    
+    DOMAIN = "https://adrinolinks.in/"
 
     url = url[:-1] if url[-1] == '/' else url
 
     code = url.split("/")[-1]
     
     final_url = f"{DOMAIN}/{code}"
-
-    resp = client.get(final_url)
+    
+    ref = "https://wikitraveltips.com//"
+    
+    h = {"referer": ref}
+  
+    resp = client.get(final_url,headers=h)
+    
     soup = BeautifulSoup(resp.content, "html.parser")
     
-    try: inputs = soup.find(id="go-link").find_all(name="input")
-    except: return "Incorrect Link"
-    
+    inputs = soup.find_all("input")
+   
     data = { input.get('name'): input.get('value') for input in inputs }
 
     h = { "x-requested-with": "XMLHttpRequest" }
     
-    time.sleep(5)
+    time.sleep(4)
     r = client.post(f"{DOMAIN}/links/go", data=data, headers=h)
     try:
         return r.json()['url']
