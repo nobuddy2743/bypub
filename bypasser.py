@@ -853,7 +853,7 @@ def shortlingly(url):
 
     h = { "x-requested-with": "XMLHttpRequest" }
     
-    time.sleep(2)
+    time.sleep(7)
     r = client.post(f"{DOMAIN}/links/go", data=data, headers=h)
     try:
         return r.json()['url']
