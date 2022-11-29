@@ -289,7 +289,7 @@ def rocklinks(url):
     url = url[:-1] if url[-1] == '/' else url
 
     code = url.split("/")[-1]
-    if 'rocklinks.net' in url:
+    if ('rocklinks.net' in url) or ('go.rocklinks.net' in url):
         final_url = f"{DOMAIN}/{code}?quelle=" 
     else:
         final_url = f"{DOMAIN}/{code}"
