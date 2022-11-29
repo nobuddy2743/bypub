@@ -280,6 +280,7 @@ def urlsopen(url):
 # rocklinks
 
 def rocklinks(url):
+    DOMAIN = ""	
     client = cloudscraper.create_scraper(allow_brotli=False)
     if ('rocklinks.net' in url) or ('go.rocklinks.net' in url):
         DOMAIN = "https://disheye.com"
@@ -304,7 +305,7 @@ def rocklinks(url):
 
     h = { "x-requested-with": "XMLHttpRequest" }
     
-    time.sleep(10)
+    time.sleep(3)
     r = client.post(f"{DOMAIN}/links/go", data=data, headers=h)
     try:
         return r.json()['url']
