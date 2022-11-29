@@ -1544,7 +1544,7 @@ def shortners(url):
         return shareus(url)
         
     # shortingly
-    elif "https://shortingly.in/" in url:
+    elif "https://shortingly.me/" in url:
         print("entered shortingly:",url)
         return shortlingly(url)
 
@@ -1598,7 +1598,7 @@ def shortners(url):
         return linkvertise(url)
         
     # rocklinks
-    elif "https://rocklinks.net/" in url:
+    elif "https://rocklinks.net/" in url or "https://go.rocklinks.net/" in url:
         print("entered rocklinks:",url)
         return rocklinks(url)
         
