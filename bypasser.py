@@ -281,8 +281,8 @@ def urlsopen(url):
 
 def rocklinks(url):
     client = cloudscraper.create_scraper(allow_brotli=False)
-    if 'rocklinks.net' in url:
-        DOMAIN = "https://disheye.com/"
+    if ('rocklinks.net' in url) or ('go.rocklinks.net' in url):
+        DOMAIN = "https://gadgets.techymedies.com"
     else:
         DOMAIN = "https://rocklinks.net"
 
@@ -833,7 +833,7 @@ def shareus(url):
 def shortlingly(url):
     client = cloudscraper.create_scraper(allow_brotli=False)
     if 'shortingly.me' in url:
-        DOMAIN = "https://go.techyjeeshan.xyz"
+        DOMAIN = "https://loan.techyjeeshan.xyz"
     else:
         return "Incorrect Link"
 
