@@ -280,10 +280,10 @@ def urlsopen(url):
 # rocklinks
 
 def rocklinks(url):
-   client = cloudscraper.create_scraper(allow_brotli=False)
-   if ('rocklinks.net' in url) or ('go.rocklinks.net' in url):
-   	DOMAIN = "https://blog.disheye.com"
-   else:
+    client = cloudscraper.create_scraper(allow_brotli=False)
+    if 'rocklinks.net' in url:
+        DOMAIN = "https://blog.disheye.com"
+    else:
         DOMAIN = "https://rocklinks.net"
 
     url = url[:-1] if url[-1] == '/' else url
@@ -304,11 +304,12 @@ def rocklinks(url):
 
     h = { "x-requested-with": "XMLHttpRequest" }
     
-    time.sleep(5)
+    time.sleep(10)
     r = client.post(f"{DOMAIN}/links/go", data=data, headers=h)
     try:
         return r.json()['url']
-    except: return "Something went wrong :("
+    except: return "Something went wrong :("	
+   
 
 
 ################################################
