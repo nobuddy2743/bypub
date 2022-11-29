@@ -49,7 +49,7 @@ ddllist = ["disk.yandex.com","mediafire.com","uptobox.com","osdn.net","github.co
 # Adrino links
 
 def adrino_links(url):
-    (("https://adrinolinks.in/") in url or ("https://adrinolinks.com/" in url))
+    
     client = cloudscraper.create_scraper(allow_brotli=False)
     if 'adrinolinks.com' in url or 'adrinolinks.in' in url:
         DOMAIN = "https://wikitraveltips.com/"
